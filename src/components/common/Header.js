@@ -8,22 +8,20 @@ class Header extends Component {
     headerRender() {
         const {headingTitle, subHeadingTitle} = this.props;
         const {textStyle, viewStyle, textSubHeadingStyle} = styles;
-        if (!subHeadingTitle) {
-            console.log('only header is rendering');
-            return (
-                <View style={viewStyle}>
-                    <Text style={textStyle}>{headingTitle}</Text>
-                </View>
-            );
-        } else {
-            console.log('both header and sub heading is rendering');
+        if (subHeadingTitle) {
             return (
                 <View style={viewStyle}>
                     <Text style={textStyle}>{headingTitle}</Text>
                     <Text style={textSubHeadingStyle}>{subHeadingTitle}</Text>
                 </View>
             );
+
         }
+        return (
+            <View style={viewStyle}>
+                <Text style={textStyle}>{headingTitle}</Text>
+            </View>
+        );
     }
 
     render() {
